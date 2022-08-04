@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather</title>
+  </head>
+  <style>
+    h1 {
+      font-weight: normal;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      line-height: 25px;
+    }
+    .currently {
+      color: #1964d6;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      line-height: 15px;
+      size: 20px 30px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 300px;
+      list-style: none;
+      padding: 30px 30px;
+      border-radius: 10px;
+      transition: all 300ms ease-in-out;
+    }
+    li:hover {
+      background: #fefbef;
+    }
+    p {
+      padding: 0;
+      margin: 20px auto 0px auto;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 15px 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      background: #1964d6;
+      border-radius: 100px;
+      border-color: #1964d6;
+      border-style: solid;
+      box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+      transition: all 300ms ease-in-out;
+      cursor: pointer;
+    }
+
+    button:hover {
+      color: #1964d6;
+      background-color: white;
+      border-color: #1964d6;
+    }
+
+    h3 {
+      text-align: center;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: normal;
+    }
+  </style>
+
+  <body>
+    <h1 class="emoji">🌤</h1>
+    <h1 class="currently"><strong>Currently 21° in Tokyo</strong></h1>
+    <h1>13° / <strong>23°</strong></h1>
+
+    <ul>
+      <li>
+        <strong>🌧Tomorrow</strong>
+        <p>10° / <strong>22°</strong></p>
+      </li>
+      <li>
+        <strong>🌥 Saturday</strong>
+        <p>15° / <strong>17°</strong></p>
+      </li>
+      <li>
+        <strong>☀️ Sunday</strong>
+        <p>25° / <strong>28°</strong></p>
+      </li>
+    </ul>
+
+    <button>Change city</button>
+
+    <h3>Coded by Mary</h3>
+
+    <script>
+      function askWeather() {
+        let city = prompt("what city do you live in?");
+        let temperature = prompt("what's the temperature today?");
+        let emojiA = document.querySelector(".emoji");
+        if (temperature >= 0) {
+          emojiA.innerHTML = "😄";
+        } else {
+          emojiA.innerHTML = "😭";
+        }
+        let currentlyA = document.querySelector(".currently");
+        currentlyA.innerHTML = `<strong>It's currently ${temperature}° in ${city}.</strong>`;
+      }
+
+      let cityButton = document.querySelector("button");
+      cityButton.addEventListener("click", askWeather);
+    </script>
+  </body>
+</html>
